@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Buzz & Barrel Menu</title>
+    <style>
+        
+        body,
+        h1,
+        h2,
+        p,
+        button {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background-color: #003366;
+            
+            color: #f8f8f8;
+            
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+        }
+
+        .hero {
+            background-image: url("images/food.jpeg");
+            
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 120px 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+        }
+
+        .menu-categories {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .filter-btn {
+            background-color: #006699;
+            
+            color: #f8f8f8;
+            
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            margin: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .filter-btn:hover {
+            background-color: #004080;
+            
+        }
+
+        .menu-items {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .menu-item {
+            background-color: #ffffff;
+            
+            border: 1px solid #cccccc;
+            
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            padding: 15px;
+            width: 300px;
+            text-align: center;
+        }
+
+        .menu-item img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+
+        .menu-item h3 {
+            font-size: 1.5rem;
+            margin: 10px 0;
+        }
+
+        .menu-item p {
+            font-size: 1rem;
+            margin: 5px 0;
+        }
+
+        .menu-item .price {
+            font-weight: bold;
+            color: #003366;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <header class="text-center">
+        <h1>The Buzz & Barrel</h1>
+        <p class="lead">The Place Where Good Times Flow</p>
+    </header>
+
+    
+    <section class="hero text-center">
+        <h2>Welcome to The Buzz & Barrel</h2>
+        <p class="lead">Cheers to Great Times and Even Better Tastes</p>
+    </section>
+
+    <section class="menu-categories">
+        <button class="filter-btn" data-category="all">All</button>
+        <button class="filter-btn" data-category="starters">Starters</button>
+        <button class="filter-btn" data-category="main-courses">Main Courses</button>
+        <button class="filter-btn" data-category="salads">Salads</button>
+        <button class="filter-btn" data-category="desserts">Desserts</button>
+    </section>
+    <section class="menu-items">
+        
+    </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuItems = [
+                { name: 'Paneer Tikka', description: 'Marinated paneer cubes grilled to perfection with spices, yogurt, and a hint of lemon. Served with mint chutney.', price: '229', category: 'starters', image: 'images/pannertikka.jpeg' },
+                { name: 'Chicken Malai Tikka', description: 'Tender pieces of chicken marinated in cream, cheese, and mild spices, then grilled until juicy and golden.', price: '379', category: 'starters', image: 'images/chickenmalaitikka.jpeg' },
+                { name: 'Samosa', description: 'A crispy pastry filled with a spiced mixture of potatoes, peas, and sometimes meat.', price: '149', category: 'starters', image: 'images/samosa.jpeg' },
+                { name: 'Dahi Puri', description: 'Crisp puris filled with spiced potatoes, chickpeas, yogurt, tamarind chutney, and topped with sev and coriander.', price: '205', category: 'starters', image: 'images/dahipuri.jpeg' },
+                { name: 'Seekh Kebabs', description: 'Minced meat (usually lamb or chicken) mixed with spices, shaped onto skewers, and grilled.', price: '399', category: 'starters', image: 'images/seekhkebabs.jpeg' },
+                { name: 'Aloo Tikki', description: 'Spiced potato patties, shallow-fried until crispy, often served with chutneys.', price: '149', category: 'starters', image: 'images/alootikki.jpeg' },
+                { name: 'Prawn Koliwada', description: 'Prawns marinated in spices, coated in a gram flour batter, and deep-fried to golden perfection.', price: '499', category: 'starters', image: 'images/prawnkoliwada.jpeg' },
+                { name: 'Hara Bhara Kebab', description: 'A green and healthy kebab made from spinach, peas, and potatoes, with a touch of spices.', price: '249', category: 'starters', image: 'images/harabharakebab.jpeg' },
+                { name: 'Vegetable Pakora', description: 'Mixed vegetables dipped in a spiced gram flour batter and deep-fried until crispy.', price: '199', category: 'starters', image: 'images/pakoda.jpeg' },
+                { name: 'Mutton Shami Kebab', description: ' Soft, melt-in-the-mouth kebabs made with minced mutton, chana dal, and a blend of spices.', price: '399', category: 'starters', image: 'images/muttonshamikebab.jpeg' },
+                
+                { name: 'Butter Chicken (Murgh Makhani)', description: 'Tender chicken cooked in a creamy tomato-based gravy with butter and aromatic spices.', price: '450', category: 'main-courses', image: 'images/butterchickentikka.jpeg' },
+                { name: 'Biryani', description: 'A fragrant rice dish cooked with layers of marinated meat (usually chicken, mutton), aromatic spices, and saffron.', price: '399', category: 'main-courses', image: 'images/biryani.jpeg' },
+                { name: 'Paneer Butter Masala', description: 'Cubes of paneer (Indian cottage cheese) cooked in a rich, creamy tomato gravy similar to butter chicken but vegetarian.', price: '345', category: 'main-courses', image: 'images/pannerbuttermasala.jpeg' },
+                { name: 'Rogan Josh', description: ' A slow-cooked lamb or mutton dish from Kashmir, made with a rich blend of spices, yogurt, and aromatic herbs.', price: '599', category: 'main-courses', image: 'images/roganjosh.jpeg' },
+                { name: 'Chole Bhature', description: 'Spiced chickpeas (chole) cooked in a tangy, tomato-based sauce, served with fluffy, deep-fried bread (bhature).', price: '199', category: 'main-courses', image: 'images/cholebhature.jpeg' },
+                { name: 'Daal Makhani', description: 'Black lentils and kidney beans slow-cooked with butter, cream, and spices, giving it a rich, creamy texture.', price: '159', category: 'main-courses', image: 'images/dalmakhani.jpeg' },
+                { name: 'Malai Kofta', description: 'Fried dumplings made from mashed potatoes, paneer, and vegetables, served in a rich, creamy tomato-based gravy.', price: '299', category: 'main-courses', image: 'images/malaikofta.jpeg' },
+                { name: 'Goan Fish Curry', description: 'A tangy and spicy fish curry made with coconut milk, tamarind, and a blend of Goan spices.', price: '499', category: 'main-courses', image: 'images/goanfishcurry.jpeg' },
+                { name: 'Lamb Vindaloo', description: 'A fiery and tangy lamb curry from Goa, made with vinegar, garlic, and a medley of spices.', price: '549', category: 'main-courses', image: 'images/lambvindaloo.jpeg' },
+                { name: 'Hyderabadi Dum Biryani', description: 'A specific type of biryani from Hyderabad, known for its layers of marinated meat, basmati rice, fried onions, and aromatic spices, all cooked under pressure.', price: '399', category: 'main-courses', image: 'images/hyderqabadidumbiryani.jpeg' },
+
+                { name: 'Kachumber Salad', description: 'A simple and refreshing salad made with finely chopped cucumbers, tomatoes, onions, and coriander, dressed with lemon juice, salt, and a sprinkle of chaat masala.', price: '240', category: 'salads', image: 'images/kachumbersalad.jpeg' },
+                { name: 'Cucumber Raita', description: 'Grated or finely chopped cucumber mixed with yogurt, cumin, and a pinch of salt, sometimes garnished with mint leaves.', price: '199', category: 'salads', image: 'images/cucumberraita.jpeg' },
+                { name: 'Sprouted Moong Salad', description: 'A healthy salad made with sprouted green gram (moong), chopped vegetables like tomatoes, onions, and carrots, tossed with lemon juice, salt, and pepper.', price: '250', category: 'salads', image: 'images/sproutedmoongsalad.jpeg' },
+                { name: 'Carrot and Beetroot Salad', description: 'Shredded carrots and beetroot mixed with lemon juice, salt, and sometimes a touch of green chilies or coriander leaves.', price: '200', category: 'salads', image: 'images/carrotandbeetrootsalad.jpeg' },
+                { name: 'Corn and Peanut Salad', description: 'This vibrant salad features sweet corn kernels mixed with roasted peanuts, chopped onions, tomatoes, cucumbers, and coriander leaves. It’s dressed with lemon juice, salt, chaat masala, and a hint of green chilies.', price: '249', category: 'salads', image: 'images/cornandpeanutsalad.jpeg' },
+                { name: 'Pomegranate Raita', description: 'Yogurt mixed with fresh pomegranate seeds, a pinch of cumin powder, and salt, often garnished with mint or coriander.', price: '199', category: 'salads', image: 'images/pomegranateraita.jpeg' },
+                { name: 'Raw Mango Salad (Kacchi Kairi Salad)', description: 'Grated raw mango mixed with chopped onions, green chilies, coriander, and seasoned with salt and red chili powder.', price: '150', category: 'salads', image: 'images/rawmangosalad(kacchikairisalad).jpeg' },
+                { name: 'Mixed Bean Salad', description: 'A mix of boiled beans like chickpeas, kidney beans, and black beans, tossed with chopped onions, tomatoes, cucumbers, coriander, lemon juice, and spices.', price: '199', category: 'salads', image: 'images/mixedbeansalad.jpeg' },
+                { name: 'Chana Chaat', description: 'Boiled chickpeas tossed with chopped onions, tomatoes, coriander, green chilies, chaat masala, and lemon juice.', price: '129', category: 'salads', image: 'images/chanachaat.jpeg' },
+                { name: 'Fruit Chaat', description: 'A medley of seasonal fruits like apples, bananas, pomegranate, and oranges, sprinkled with chaat masala and black salt.', price: '199', category: 'salads', image: 'images/fruitchaat.jpeg' },
+
+
+                { name: 'Gulab Jamun', description: 'Deep-fried dough balls made from khoya (reduced milk), soaked in a fragrant sugar syrup flavored with cardamom and rose water.', price: '149', category: 'desserts', image: 'images/gulabjamun.jpeg' },
+                { name: 'Rasgulla', description: 'Soft and spongy balls made from chhena (Indian cottage cheese) cooked in a light sugar syrup.', price: '149', category: 'desserts', image: 'images/rasgulla.jpeg' },
+                { name: 'Jalebi', description: 'Crisp, spiral-shaped deep-fried batter soaked in saffron-flavored sugar syrup.', price: '99', category: 'desserts', image: 'images/jalebi.jpeg' },
+                { name: 'Kheer (Rice Pudding)', description: 'A creamy dessert made from slow-cooked rice, milk, sugar, and flavored with cardamom, saffron, and garnished with nuts.', price: '199', category: 'desserts', image: 'images/kheer(ricepudding).jpeg' },
+                { name: 'Rabri', description: 'Thickened, sweetened milk flavored with cardamom and saffron, and garnished with nuts and dried fruits.', price: '299', category: 'desserts', image: 'images/rabri.jpeg' },
+                { name: 'Kulfi', description: 'A traditional Indian ice cream made from thickened milk, flavored with cardamom, saffron, and sometimes mixed with nuts or fruits.', price: '159', category: 'desserts', image: 'images/kulfi.jpeg' },
+                { name: 'Mysore Pak', description: 'A rich, buttery sweet made from gram flour, sugar, and ghee, with a crumbly texture.', price: '259', category: 'desserts', image: 'images/mysorepak.jpeg' },
+                { name: 'Ras Malai', description: 'Soft, spongy balls made from chhena soaked in a sweet, thickened milk flavored with cardamom and garnished with saffron and nuts.', price: '199', category: 'desserts', image: 'images/rasmalai.jpeg' },
+                { name: 'Besan Ladoo', description: 'Round balls made from roasted gram flour, ghee, and sugar, flavored with cardamom and sometimes garnished with nuts.', price: '99', category: 'desserts', image: 'images/besanladoo.jpeg' },
+                { name: 'Malpua', description: 'A sweet, deep-fried pancake made from a batter of flour, milk, and sugar, often flavored with cardamom and fennel, and soaked in sugar syrup.', price: '159', category: 'desserts', image: 'images/malpua.jpeg' },
+
+
+
+
+
+                
+            ];
+
+            const menuContainer = document.querySelector('.menu-items');
+            const filterButtons = document.querySelectorAll('.filter-btn');
+
+            function displayMenuItems(category) {
+                menuContainer.innerHTML = '';
+                const filteredItems = category === 'all' ? menuItems : menuItems.filter(item => item.category === category);
+                filteredItems.forEach(item => {
+                    const menuItemDiv = document.createElement('div');
+                    menuItemDiv.className = 'menu-item';
+                    menuItemDiv.innerHTML = `
+                            <img src="${item.image}" alt="${item.name}">
+                              <h3>${item.name}</h3>
+                              <p>${item.description}</p>
+                              <p class="price">₹${item.price}</p>
+                          `;
+                    menuContainer.appendChild(menuItemDiv);
+                });
+            }
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const category = button.getAttribute('data-category');
+                    displayMenuItems(category);
+                });
+            });
+
+            
+            displayMenuItems('all');
+        });
+    </script>
+
+
+<footer class="footer-section text-center">
+    <div class="container">
+        <p>© 2024 The Buzz & Barrel . All rights reserved.</p>
+        <p>
+            <a href="#">Privacy Policy</a> |
+            <a href="#">Terms of Service</a>
+        </p>
+        <div>
+            <a href=""><img src="images/facebook-icon.jpeg" alt="Facebook" width="30"></a>
+            <a href=""><img src="images/twitter-icon.jpeg" alt="Twitter" width="30"></a>
+            <a href=""><img src="images/Instagram-icon.jpeg" alt="Instagram" width="30"></a>
+        </div>
+    </div>
+</footer>
+</body>
+
+</html>
